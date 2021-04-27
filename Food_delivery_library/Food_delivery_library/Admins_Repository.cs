@@ -28,8 +28,9 @@ namespace Food_delivery_library
     {
 
 
-      //  string connectionString = Resource.ConSTR;
-        string connectionString = ConfigurationManager.ConnectionStrings["ConSTR"].ConnectionString;
+
+        //string connectionString = ConfigurationManager.ConnectionStrings["ConSTR"].ConnectionString;
+        string connectionString = "Data Source=SQL5104.site4now.net;Initial Catalog=db_a736b5_foodeliverydb123;User Id=db_a736b5_foodeliverydb123_admin;Password=QQddRRvv1";
         public IEnumerable<Admin> GetColl()
         {
             List<Admin> coll = new List<Admin>();

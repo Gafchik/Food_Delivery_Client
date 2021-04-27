@@ -1,17 +1,18 @@
-﻿using Food_delivery_library;
-using GalaSoft.MvvmLight.Command;
+﻿using Food_Delivery_Client.Authorization.Regestreted;
+using Food_delivery_library;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace Food_Delivery_Client.Authorization
 {
     public class ModelView_Authorization : INotifyPropertyChanged
     {
+        public INavigation Navigation { get; set; }// я хз зачем это надо
 
         public ObservableCollection<User> Users { get; set; }
         private User_Repository user_Repository = new User_Repository();
@@ -47,36 +48,49 @@ namespace Food_Delivery_Client.Authorization
         }
         #endregion
 
-        private string temp_phone;
-        public string Temp_Phone
+        public static User current_user;
+        public User Current_User
         {
-            get { return temp_phone; }
-            set { temp_phone = value; OnPropertyChanged("temp_login"); }
+            get { return current_user; }
+            set { current_user = value; OnPropertyChanged("Current_User"); }
         }
 
 
-        private string temp_password;
-        public string Temp_password
-        {
-            get { return temp_password; }
-            set { temp_password = value; OnPropertyChanged("temp_password"); }
-        }
 
-        /* private RelayCommand sing_in;
 
-         public RelayCommand Sing_In
+
+        public Command sing_in; // Вход 
+        public Command Sing_In              
          {
              get
              {
-                 return sing_in ?? (sing_in = new RelayCommand(() =>
+                 return sing_in ?? (sing_in = new Command((act) =>
                  {
-
+                     if(Blocked_Users.ToList().Exists(i=>i.Blocked_user_Phone == Current_User.User_Phone))
+                     {
+                       (act as View_Authorization).DisplayAlert("Извините", "Но вы заблокированы", "ОK");
+                         return;
+                     }
+                     if (!Users.ToList().Exists(i => i.User_Phone == Current_User.User_Phone))
+                     {
+                         (act as View_Authorization).DisplayAlert("Извините", "Нужно зарегестрироватся", "ОK");
+                         return;
+                     }
+                     else
+                     {
+                         (act as View_Authorization).DisplayAlert("Урра", "Вы вошли", "ОK");
+                     }
                  }));
              }
-         }*/
+         }
 
 
-
+        public Command reg;
+        public Command Reg
+        {
+            get { return reg ?? (reg = new Command( () => { App.Current.MainPage = new View_Reg(); })); }
+        }
+          
 
 
 

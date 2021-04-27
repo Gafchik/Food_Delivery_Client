@@ -21,7 +21,8 @@ namespace Food_delivery_library.About_orders
     }
     public class Current_Chek_Repository : IRepository<Current_Cheсk>
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["ConSTR"].ConnectionString;
+        // string connectionString = ConfigurationManager.ConnectionStrings["ConSTR"].ConnectionString;
+        string connectionString = "Data Source=SQL5104.site4now.net;Initial Catalog=db_a736b5_foodeliverydb123;User Id=db_a736b5_foodeliverydb123_admin;Password=QQddRRvv1";
         public void Create(Current_Cheсk value)
         {
             using (IDbConnection db = new SqlConnection(connectionString))
