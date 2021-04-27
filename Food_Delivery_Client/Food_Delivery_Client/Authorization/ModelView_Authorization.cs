@@ -1,4 +1,5 @@
 ﻿using Food_delivery_library;
+using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -46,24 +47,11 @@ namespace Food_Delivery_Client.Authorization
         }
         #endregion
 
-        private User tempUser;
-
-        public User TempUser
+        private string temp_phone;
+        public string Temp_Phone
         {
-            get { return tempUser; }
-            set { tempUser = value; OnPropertyChanged("TempUser"); }
-        }
-
-
-        #region login password  in
-
-
-
-        private string temp_login;
-        public string Temp_login
-        {
-            get { return temp_login; }
-            set { temp_login = value; OnPropertyChanged("temp_login"); }
+            get { return temp_phone; }
+            set { temp_phone = value; OnPropertyChanged("temp_login"); }
         }
 
 
@@ -73,7 +61,25 @@ namespace Food_Delivery_Client.Authorization
             get { return temp_password; }
             set { temp_password = value; OnPropertyChanged("temp_password"); }
         }
-        #endregion
+
+        /* private RelayCommand sing_in;
+
+         public RelayCommand Sing_In
+         {
+             get
+             {
+                 return sing_in ?? (sing_in = new RelayCommand(() =>
+                 {
+
+                 }));
+             }
+         }*/
+
+
+
+
+
+
 
     }
 }

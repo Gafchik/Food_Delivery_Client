@@ -3,10 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Food_Delivery_Client.Authorization.View_Authorization">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Text="Авторизиция" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center"
+                   FontSize="10"/>
+            <Label Text="Номер телефона" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"
+                 Grid.Row="1"  FontSize="10"/>
+            <Entry Grid.Column="1" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center"
+                   FontSize="10"     />
+            <Button Grid.Column="1" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Center"
+                   FontSize="10"  Text="Вход"   />
+            <Button Grid.Column="0" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Center"
+                   FontSize="10"  Text="Регестрация"   />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
