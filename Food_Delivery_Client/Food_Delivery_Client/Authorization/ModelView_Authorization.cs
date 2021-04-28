@@ -1,4 +1,5 @@
 ﻿using Food_Delivery_Client.Authorization.Regestreted;
+using Food_Delivery_Client.Main;
 using Food_delivery_library;
 using System;
 using System.Collections.ObjectModel;
@@ -89,11 +90,10 @@ namespace Food_Delivery_Client.Authorization
                          (act as View_Authorization).DisplayAlert("Извините", "Нужно зарегестрироватся", "ОK");
                          return;
                      }
-                     else
+                     else 
                      {
-                         Current_User = Users.ToList().Find(i => i.User_Phone == Current_Phone);
-                         (act as View_Authorization).DisplayAlert("Урра", "Вы вошли", "ОK");
-
+                         Current_User = Users.ToList().Find(i => i.User_Phone == Current_Phone);                       
+                         App.Current.MainPage = new MainPage();
                      }
                  }));
              }

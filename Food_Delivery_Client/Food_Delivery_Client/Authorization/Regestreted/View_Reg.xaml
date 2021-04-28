@@ -29,8 +29,9 @@
                    VerticalOptions="Center" HorizontalOptions="Center"/>
             <Label Text="   Номер карты&#10;(не обязательно)" FontSize="20" Grid.Row="4" 
                    VerticalOptions="Center" HorizontalOptions="Center"/>
-           
 
+            <ActivityIndicator Grid.Row="2" Grid.RowSpan="2"
+                       x:Name="activity"      Grid.ColumnSpan="2" IsEnabled="False" IsRunning="False" IsVisible="False"/>
 
 
             <Entry  x:Name="Surname" 
