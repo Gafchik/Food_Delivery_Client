@@ -52,11 +52,24 @@ namespace Food_Delivery_Client.Authorization
         public User Current_User
         {
             get { return current_user; }
-            set { current_user = value; OnPropertyChanged("Current_User"); }
+            set{ current_user = value; OnPropertyChanged("Current_User"); }
         }
 
+        public string current_phone;
 
+        public string Current_Phone
+        {
+            get { return current_phone; }
+            set { current_phone = value; OnPropertyChanged("Current_Phone"); }
+        }
 
+        public string current_pass;
+
+        public string Autor
+        {
+            get { return current_pass; }
+            set { current_pass = value; OnPropertyChanged("Current_Pass"); }
+        }
 
 
         public Command sing_in; // Вход 
@@ -66,19 +79,21 @@ namespace Food_Delivery_Client.Authorization
              {
                  return sing_in ?? (sing_in = new Command((act) =>
                  {
-                     if(Blocked_Users.ToList().Exists(i=>i.Blocked_user_Phone == Current_User.User_Phone))
+                     if(Blocked_Users.ToList().Exists(i=>i.Blocked_user_Phone == Current_Phone))
                      {
                        (act as View_Authorization).DisplayAlert("Извините", "Но вы заблокированы", "ОK");
                          return;
                      }
-                     if (!Users.ToList().Exists(i => i.User_Phone == Current_User.User_Phone))
+                     if (!Users.ToList().Exists(i => i.User_Phone == Current_Phone))
                      {
                          (act as View_Authorization).DisplayAlert("Извините", "Нужно зарегестрироватся", "ОK");
                          return;
                      }
                      else
                      {
+                         Current_User = Users.ToList().Find(i => i.User_Phone == Current_Phone);
                          (act as View_Authorization).DisplayAlert("Урра", "Вы вошли", "ОK");
+
                      }
                  }));
              }

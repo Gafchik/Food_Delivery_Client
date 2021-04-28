@@ -26,16 +26,17 @@
             <Label Text="Номер телефона" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"
                  FontAttributes="Bold" Grid.Row="1"  FontSize="20"/>
             <Entry Grid.Column="1" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center"
-                  Keyboard ="Telephone"  FontSize="20"  WidthRequest="100" Text="{Binding Current_User.User_Phone}"   />
+                  Keyboard ="Telephone"  FontSize="20"  WidthRequest="100" Text="{Binding Current_Phone}"   />
             <Button Grid.Row="2" Grid.ColumnSpan="2"  VerticalOptions="Center" HorizontalOptions="Center"
               FontAttributes="Bold"  FontSize="20"  Text="Отправить пароль" Command="{Binding Send_pass}" />
             <Label Text="Времменный пароль" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"
                  FontAttributes="Bold" Grid.Row="3"  FontSize="18"/>
             <Entry Grid.Column="1" Grid.Row="3" VerticalOptions="Center" HorizontalOptions="Center"
-                  IsPassword="True"  FontSize="20"  WidthRequest="100" Text="{Binding Current_User.User_Temp_password}"   />
+                  IsPassword="True"  FontSize="20"  WidthRequest="100" Text="{Binding Current_Pass}"   />
             
             <Button Grid.Column="1" Grid.Row="4" VerticalOptions="Center" HorizontalOptions="Center"
-                   FontAttributes="Bold" FontSize="25"  Text="Вход" Command="{Binding Sing_In}"   />
+                   FontAttributes="Bold" FontSize="25"  Text="Вход" Command="{Binding Sing_In}" 
+                    CommandParameter="{Binding Source={x:Reference Name=Autor} }"/>
             <Button Grid.Column="0" Grid.Row="4" VerticalOptions="Center" HorizontalOptions="Center"
                   FontAttributes="Bold"  FontSize="20"  Text="Регестрация" Command="{Binding Reg}"   />
         </Grid>

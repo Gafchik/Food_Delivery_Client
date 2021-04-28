@@ -51,23 +51,31 @@ namespace Food_Delivery_Client.Authorization.Regestreted
 
         internal void Add_new(string Name, string Surname, string Phone, string E_mail, string Card, ContentPage win)
         {
-            if (Name == "" && Surname == "" && Phone == "")
+            if (Name == "" || Surname == "" || Phone == "")
             { win.DisplayAlert("Не все поля заполнены", "Ошибка", "Ок"); return; }
             if (Blocked_Users.ToList().Exists(i => i.Blocked_user_Phone == Phone))
             {
                 win.DisplayAlert("Извините", "Но вы заблокированы", "ОK");
                 return;
             }
-            user_repository.Create(new User
+            try
             {
-                User_Name = Name,
-                User_Surname = Surname,
-                User_Phone = Phone,
-                User_Email = E_mail,
-                User_Bank_card = Card
-            });
-            win.DisplayAlert("Успех", "Вы зарегестрировались\nожидайте пароль", "ОK");
-            App.Current.MainPage = new View_Authorization();
+                user_repository.Create(new User
+                {
+                    User_Name = Name,
+                    User_Surname = Surname,
+                    User_Phone = Phone,
+                    User_Email = E_mail,
+                    User_Bank_card = Card
+                });
+                win.DisplayAlert("Успех", "Вы зарегестрировались\nожидайте пароль", "ОK");
+                App.Current.MainPage = new View_Authorization();
+            }
+            catch (Exception)
+            {
+                win.DisplayAlert("Не все поля заполнены", "Ошибка", "Ок"); return;
+            }
+           
         }
 
         #region go to autorization
