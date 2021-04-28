@@ -19,9 +19,7 @@ namespace Food_Delivery_Client.Main
             BindingContext = new ModeView_Product();
         }
 
-        public  void OnItemTapped(object sender, ItemTappedEventArgs e) => (BindingContext as ModeView_Product).OnItemTapped(sender, e, this);
-        
-           
+        public  void OnItemTapped(object sender, ItemTappedEventArgs e) => (BindingContext as ModeView_Product).OnItemTapped(sender, e, this);               
         
     }
 }

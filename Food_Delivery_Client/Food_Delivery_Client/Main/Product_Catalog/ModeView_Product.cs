@@ -100,7 +100,7 @@ namespace Food_Delivery_Client.Main.Product_Catalog
             {
                
          
-                if (!(await view_Product.DisplayAlert($"Выбраный {Selected_Item.Product_Name}", "Добавить в корзину?", "Да", "Нет")))
+                if (!(await view_Product.DisplayAlert($"Выбраный товар {Selected_Item.Product_Name}", "Добавить в корзину?", "Да", "Нет")))
                     return;
                 else
                 {
@@ -112,7 +112,7 @@ namespace Food_Delivery_Client.Main.Product_Catalog
                         Order_Final_Price = (float)Selected_Item.Product_Price -
                             (((float)Selected_Item.Product_Price / 100) * (float)Selected_Item.Product_Discount)
                     });
-                   await  view_Product.DisplayAlert($"Выбраный {Selected_Item.Product_Name}", "Добавлен в корзину", "Ок") ;
+                   await  view_Product.DisplayAlert($"Выбраный товар {Selected_Item.Product_Name}", "Добавлен в корзину", "Ок") ;
                 }
             }
         }

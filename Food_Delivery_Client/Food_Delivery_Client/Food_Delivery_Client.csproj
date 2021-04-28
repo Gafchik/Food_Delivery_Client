@@ -32,6 +32,9 @@
     <EmbeddedResource Update="Main\about_MainPage\MainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Main\Basket\View_Basket.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Main\Product_Catalog\View_Product.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -45,7 +48,6 @@
 
   <ItemGroup>
     <Folder Include="Main\History_Purchase\" />
-    <Folder Include="Main\Basket\" />
     <Folder Include="Main\Exit\" />
   </ItemGroup>
 

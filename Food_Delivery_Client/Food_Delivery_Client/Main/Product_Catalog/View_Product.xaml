@@ -14,7 +14,7 @@
         <Label Text="Вкусняшки :" HorizontalOptions="Center"
                FontSize="Title" FontAttributes="Bold" TextColor="Black"
                />
-        <ListView x:Name="phonesList" HorizontalOptions="Center" 
+        <ListView x:Name="List" HorizontalOptions="Center" 
               HasUnevenRows="True" SeparatorColor="Blue" 
               ItemsSource="{Binding Products}" SelectedItem="{Binding Selected_Item}"
             ItemTapped="OnItemTapped">

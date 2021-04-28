@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Food_Delivery_Client.Main.Basket.View_Basket"
+             Title="Корзина">
+    <ContentPage.Content>
+        <StackLayout  BackgroundColor="LightBlue">
+            <StackLayout Orientation="Horizontal"  HorizontalOptions="Center">
+                <Label Text="Общая стоимость :" FontAttributes="Bold"
+                       TextColor="Black"  FontSize="18" />
+                <Label Text="{Binding Full_Price_Basket}" FontAttributes="Bold"
+                       TextColor="Black"  FontSize="18" />
+            </StackLayout>
+            <Button Text="Заказать" FontAttributes="Bold"
+                       TextColor="Black"  FontSize="18"
+                    HorizontalOptions="Center"
+                    Command="{Binding Sell}"                                       
+                    />
+            <Label Text="Список продуктов :" FontAttributes="Bold" HorizontalOptions="Center"
+                       TextColor="Black"  FontSize="18" />
+            <ListView x:Name="List" HorizontalOptions="Center" 
+              HasUnevenRows="True" SeparatorColor="Blue" 
+              ItemsSource="{Binding Basket}" SelectedItem="{Binding Selected_Item}"
+            ItemTapped="OnItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Padding="5" >
+                                    <Label Text="{Binding Order_Products_Name}" TextColor="Black" FontAttributes="Bold"
+                                       HorizontalOptions="Center" FontSize="18" />
+                                    <StackLayout Orientation="Horizontal"  HorizontalOptions="Center">
+                                        <Label Text="Цена :" TextColor="Black"/>
+                                        <Label Text="{Binding Order_Price}" TextColor="Black" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal"  HorizontalOptions="Center">
+                                        <Label Text="Скидка :" TextColor="Black"/>
+                                        <Label Text="{Binding Order_Discount}" TextColor="Black"/>
+                                        <Label Text="%" TextColor="Black"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal"  HorizontalOptions="Center">
+                                        <Label Text="Конечная цена :" TextColor="Black"/>
+                                        <Label Text="{Binding Order_Final_Price}" TextColor="Black" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
