@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Food_Delivery_Client.Main.View_Product"
+             Title="Меню Вкусняшек">
+    <StackLayout Background="LightBlue" >
+     
+        <Picker ItemsSource="{Binding Product_categories}" 
+                SelectedItem="{Binding Selected_Item_Categories}"  
+                ItemDisplayBinding="{Binding Product_category_Name}" 
+              HorizontalOptions="Center" Title="Выбор категории" TitleColor="Black"
+                ></Picker>
+
+        <Label Text="Вкусняшки :" HorizontalOptions="Center"
+               FontSize="Title" FontAttributes="Bold" TextColor="Black"
+               />
+        <ListView x:Name="phonesList" HorizontalOptions="Center" 
+              HasUnevenRows="True" SeparatorColor="Blue" 
+              ItemsSource="{Binding Products}" SelectedItem="{Binding Selected_Item}"
+            ItemTapped="OnItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Padding="5" >
+                                <Label Text="{Binding Product_Name}" TextColor="Black" FontAttributes="Bold"
+                                       HorizontalOptions="Center" FontSize="18" />
+                                <StackLayout Orientation="Horizontal"  HorizontalOptions="Center">
+                                    <Label Text="Цена :" TextColor="Black"/>
+                                    <Label Text="{Binding Product_Price}" TextColor="Black" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal"  HorizontalOptions="Center">
+                                    <Label Text="Скидка :" TextColor="Black"/>
+                                    <Label Text="{Binding Product_Discount}" TextColor="Black"/>
+                                    <Label Text="%" TextColor="Black"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
+
+
+
+

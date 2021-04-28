@@ -11,7 +11,7 @@ using Xamarin.Forms;
 
 namespace Food_Delivery_Client.Authorization.Regestreted
 {
-   public class ModelView_Reg
+   public class ModelView_Reg : INotifyPropertyChanged
     {
         public INavigation Navigation { get; set; }// я хз зачем это надо
         public ObservableCollection<User> Users { get; set; }

@@ -36,7 +36,7 @@ namespace Food_Delivery_Client.Main
                 MenuItems = new ObservableCollection<MainPageFlyoutMenuItem>(new[]
                 {
                     new MainPageFlyoutMenuItem { Id = 0, Title = "Мой профиль ", TargetType = typeof(View_MyProfile) },
-                    new MainPageFlyoutMenuItem { Id = 1, Title = "Каталог продуктов" },
+                    new MainPageFlyoutMenuItem { Id = 1, Title = "Меню вкусняшек", TargetType = typeof(View_Product) },
                     new MainPageFlyoutMenuItem { Id = 2, Title = "История покупок" },
                     new MainPageFlyoutMenuItem { Id = 3, Title = "Корзина" },
                     new MainPageFlyoutMenuItem { Id = 4, Title = "Выход" },
