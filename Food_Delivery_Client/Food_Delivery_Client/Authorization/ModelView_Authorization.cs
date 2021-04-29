@@ -13,7 +13,7 @@ namespace Food_Delivery_Client.Authorization
 {
     public class ModelView_Authorization : INotifyPropertyChanged
     {
-        public INavigation Navigation { get; set; }// я хз зачем это надо
+        public INavigation Navigation { get; set; }
 
         public ObservableCollection<User> Users { get; set; }
         private User_Repository user_Repository = new User_Repository();

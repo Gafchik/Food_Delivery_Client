@@ -22,7 +22,7 @@
                    HorizontalOptions="Center" IsEnabled="False" WidthRequest="300"/>
             
             <Label FontSize="Large" Text="Номер карты :" HorizontalOptions="Center"/>
-            <Entry FontSize="Large" Text="{Binding EdidUser.User_Bank_card}"
+            <Entry FontSize="Large" Text="{Binding EdidUser.User_Bank_card}" Keyboard="Numeric"
                    HorizontalOptions="Center" IsEnabled="False" WidthRequest="300" />
             
             <StackLayout Orientation="Horizontal">

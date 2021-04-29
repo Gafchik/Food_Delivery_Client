@@ -9,6 +9,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace Food_Delivery_Client.Main.History
 {
@@ -51,7 +52,7 @@ namespace Food_Delivery_Client.Main.History
         //public ObservableCollection<Completed_Cheсk> My_Cheks { get; set; }
         public ObservableCollection<Completed_Cheсk_View> My_Completed_Cheсks { get; set; }
 
-
+        public INavigation Navigation { get; set; }
 
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged; // ивент обновления
@@ -87,23 +88,26 @@ namespace Food_Delivery_Client.Main.History
 
            foreach (var i in Completed_Cheсks.ToList())
            {
-               foreach (var j in Completed_Orders)
-               {
-                   if (!My_Completed_Cheсks.ToList().Exists(q => q.Check_Id == i.Check_Id))
-                   {
-                       My_Completed_Cheсks.Add(new Completed_Cheсk_View
-                       {
-                           Check_Id = i.Check_Id,
-                           Check_Admin = i.Check_Admin,
-                           Check_Date = i.Check_Date,
-                           Check_Final_Price = i.Check_Final_Price,
-                           My_Orders = new ObservableCollection<Order>()
-
-                       }); ;
-                   }
-                   else
-                       My_Completed_Cheсks.ToList().Find(q => q.Check_Id == i.Check_Id).My_Orders.Add(j);
-               }
+                foreach (var j in Completed_Orders)
+                {
+                    if (My_Completed_Cheсks.ToList().Exists(q => q.Check_Id == i.Check_Id))
+                        if (j.Order_Chek_Id == i.Check_Id)
+                            My_Completed_Cheсks.ToList().Find(q => q.Check_Id == i.Check_Id).My_Orders.Add(j);
+                        else { }
+                    else
+                    {
+                        My_Completed_Cheсks.Add(new Completed_Cheсk_View
+                        {
+                            Check_Id = i.Check_Id,
+                            Check_Admin = i.Check_Admin,
+                            Check_Date = i.Check_Date,
+                            Check_Final_Price = i.Check_Final_Price,
+                            My_Orders = new ObservableCollection<Order>()
+                        });
+                        if (j.Order_Chek_Id == i.Check_Id)
+                            My_Completed_Cheсks.ToList().Find(q => q.Check_Id == i.Check_Id).My_Orders.Add(j);
+                    }
+                }
            }
            OnPropertyChanged("Completed_Orders");
  
@@ -119,9 +123,25 @@ namespace Food_Delivery_Client.Main.History
             set { ModelView_Authorization.current_user = value; }
         }
 
+        internal async void OnItemTapped(object sender, ItemTappedEventArgs e, ContentPage view_Basket) // ивент клика
+        {
+            Selected_Item = e.Item as Completed_Cheсk_View;
+            if (Selected_Item != null)
+            {
+                if (!(await view_Basket.DisplayAlert("Посмотреть", "заказаные продукты?", "Да", "Нет")))
+                    return;
+                else
+                    await Navigation.PushAsync(new View_Current_Check(Selected_Item.My_Orders));
+                
+            }
+        }
 
-
-        
+        private Completed_Cheсk_View selected_item;
+        public Completed_Cheсk_View Selected_Item
+        {
+            get { return selected_item; }
+            set { selected_item = value;  OnPropertyChanged("Selected_Item"); }
+        }
 
 
     }

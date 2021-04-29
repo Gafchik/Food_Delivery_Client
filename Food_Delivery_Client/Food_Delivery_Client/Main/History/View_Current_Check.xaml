@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Food_Delivery_Client.Main.History.View_Current_Check" Title="Подробная информация">
+    <ContentPage.Content>
+        <StackLayout  BackgroundColor="LightBlue">
+            <ListView  HorizontalOptions="Center" IsEnabled="True"
+                                           HasUnevenRows="True" SeparatorColor="Blue" 
+                                                 ItemsSource="{Binding My_Orders }" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Padding="5" >
+                                    <StackLayout Orientation="Vertical"  HorizontalOptions="Center">
+                                        <Label Text="{Binding Order_Products_Name}" TextColor="Black" FontAttributes="Bold"
+                                                                 HorizontalOptions="Center" FontSize="18" />
+                                        <StackLayout Orientation="Horizontal"  HorizontalOptions="Center">
+                                            <Label Text="Цена :" TextColor="Black"/>
+                                            <Label Text="{Binding Order_Price}" TextColor="Black" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal"  HorizontalOptions="Center">
+                                            <Label Text="Скидка :" TextColor="Black"/>
+                                            <Label Text="{Binding Order_Discount}" TextColor="Black"/>
+                                            <Label Text="%" TextColor="Black"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal"  HorizontalOptions="Center">
+                                            <Label Text="Конечная цена :" TextColor="Black"/>
+                                            <Label Text="{Binding Order_Final_Price}" TextColor="Black" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -17,18 +17,9 @@ namespace Food_Delivery_Client.Main.History
         public View_History()
         {
             InitializeComponent();
-            BindingContext = new ModeView_History();         
+            BindingContext = new ModeView_History() { Navigation = this.Navigation };         
         }
 
-        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            if (e.Item == null)
-                return;
-
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
-
-            //Deselect Item
-            ((ListView)sender).SelectedItem = null;
-        }
+        public void OnItemTapped(object sender, ItemTappedEventArgs e) => (BindingContext as ModeView_History).OnItemTapped(sender, e, this);
     }
 }

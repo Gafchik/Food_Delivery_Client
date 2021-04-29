@@ -21,7 +21,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label Text="Авторизиция" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center"
+            <Label Text="Авторизация" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center"
               TextColor="Black"   FontAttributes="Bold"  FontSize="30"/>
             <Label Text="Номер телефона" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"
              TextColor="Black"    FontAttributes="Bold" Grid.Row="1"  FontSize="20"/>
