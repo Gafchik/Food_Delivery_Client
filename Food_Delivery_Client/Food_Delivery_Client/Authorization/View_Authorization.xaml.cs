@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,12 +12,15 @@ namespace Food_Delivery_Client.Authorization
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class View_Authorization : ContentPage
-    {      
+    {
         public View_Authorization()
         {
           
             InitializeComponent();
             BindingContext = new ModelView_Authorization() { Navigation = this.Navigation }; // нваигатион создать во вьюмодел
+        
         }
+
+       
     }
 }

@@ -27,11 +27,11 @@
              TextColor="Black"    FontAttributes="Bold" Grid.Row="1"  FontSize="20"/>
             <Entry Grid.Column="1" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center"
               TextColor="Black"    Keyboard ="Telephone"  FontSize="20"  WidthRequest="100" Text="{Binding Current_Phone}"   />
-            <Button Grid.Row="2" Grid.ColumnSpan="2"  VerticalOptions="Center" HorizontalOptions="Center"
+            <Button Grid.Row="2" Grid.ColumnSpan="2"  VerticalOptions="Center" HorizontalOptions="Center" 
            TextColor="Black"   FontAttributes="Bold"  FontSize="20"  Text="Отправить пароль" Command="{Binding Send_pass}" />
             <Label Text="Времменный пароль" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"
                  FontAttributes="Bold" Grid.Row="3"  FontSize="18" TextColor="Black"/>
-            <Entry Grid.Column="1" Grid.Row="3" VerticalOptions="Center" HorizontalOptions="Center"
+            <Entry  Grid.Column="1" Grid.Row="3" VerticalOptions="Center" HorizontalOptions="Center"
                   IsPassword="True"  FontSize="20"  WidthRequest="100" Text="{Binding Current_Pass}" 
                    TextColor="Black"/>
             
