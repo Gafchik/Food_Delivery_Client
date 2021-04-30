@@ -14,7 +14,7 @@
             <Button Text="Заказать" FontAttributes="Bold"
                        TextColor="Black"  FontSize="18"
                     HorizontalOptions="Center"
-                    Command="{Binding Sell}"   CommandParameter="{Binding Source={x:Reference Name=BasketView}}"                                    
+                    Command="{Binding Buy}"   CommandParameter="{Binding Source={x:Reference Name=BasketView}}"                                    
                     />
             <Label Text="Список продуктов :" FontAttributes="Bold" HorizontalOptions="Center"
                        TextColor="Black"  FontSize="18" />

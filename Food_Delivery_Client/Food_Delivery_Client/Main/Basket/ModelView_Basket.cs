@@ -88,14 +88,19 @@ namespace Food_Delivery_Client.Main.Basket
         }
 
 
-        public Command sell;
-        public Command Sell
+        public Command buy;
+        public Command Buy
         {
-            get { return sell ?? (sell = new Command(async (act) =>
+            get { return buy ?? (buy = new Command(async (act) =>
             {
                 var window = (act as ContentPage);
                 try
                 {
+                    if(Basket.Count ==0 || Basket == null)
+                    {
+                        await window.DisplayAlert("Корзина пуста !", "Вы ничего не выбрали =(", "Ок");
+                        return;
+                    }
                     if (!(await window.DisplayAlert("Подтвержнеие", "Вы подтверждаете заказ?", "Да", "Нет")))
                         return;
                     List<int> q = new List<int>();
