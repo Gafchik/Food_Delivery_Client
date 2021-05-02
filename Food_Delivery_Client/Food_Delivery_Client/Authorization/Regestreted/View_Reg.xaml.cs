@@ -18,7 +18,7 @@ namespace Food_Delivery_Client.Authorization.Regestreted
             BindingContext = new ModelView_Reg() { Navigation = this.Navigation }; // нваигатион создать во вьюмодел
         }
 
-        private void Add_Clicked(object sender, EventArgs e) => (BindingContext as ModelView_Reg).Add_new(Name.Text, Surname.Text, Phone.Text, E_mail.Text, Card.Text,this, activity);
+        private void Add_Clicked(object sender, EventArgs e) => (BindingContext as ModelView_Reg).Add_new(Name.Text, Surname.Text, Phone.Text, Pass.Text, E_mail.Text, Card.Text,this, activity);
 
 
     }

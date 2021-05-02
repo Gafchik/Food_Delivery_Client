@@ -4,32 +4,36 @@
              x:Class="Food_Delivery_Client.Main.MyProfile.View_MyProfile"
              x:Name="myProfile">
     <ContentPage.Content>
-        <StackLayout x:Name="stack" BackgroundColor="LightBlue">
+        <StackLayout x:Name="stack" BackgroundColor="LightBlue" >
             <Label FontSize="Medium" Text="Фамилия :" HorizontalOptions="Center"/>
-            <Entry FontSize="Large" Text="{Binding EdidUser.User_Surname}"
+            <Entry FontSize="Medium" Text="{Binding EdidUser.User_Surname}"
                    HorizontalOptions="Center" WidthRequest="300" IsEnabled="False"/>
             
-            <Label FontSize="Large" Text="Имя :" HorizontalOptions="Center"/>
-            <Entry FontSize="Large" Text="{Binding EdidUser.User_Name}"
+            <Label FontSize="Medium" Text="Имя :" HorizontalOptions="Center"/>
+            <Entry FontSize="Medium" Text="{Binding EdidUser.User_Name}"
                    HorizontalOptions="Center" IsEnabled="False" WidthRequest="300"/>
             
-            <Label FontSize="Large" Text="Номер телефона :" HorizontalOptions="Center"/>
-            <Entry Keyboard="Telephone" FontSize="Large" Text="{Binding EdidUser.User_Phone}"
+            <Label FontSize="Medium" Text="Номер телефона :" HorizontalOptions="Center"/>
+            <Entry Keyboard="Telephone" FontSize="Medium" Text="{Binding EdidUser.User_Phone}"
+                   HorizontalOptions="Center" IsEnabled="False" WidthRequest="300"/>
+
+            <Label FontSize="Medium" Text="Пароль :" HorizontalOptions="Center"/>
+            <Entry Keyboard="Default" FontSize="Medium" Text="{Binding EdidUser.User_Temp_password}"
+                   HorizontalOptions="Center" IsEnabled="False" WidthRequest="300"/>
+
+            <Label FontSize="Medium" Text="E mail :" HorizontalOptions="Center"/>
+            <Entry Keyboard="Email" FontSize="Medium" Text="{Binding EdidUser.User_Email}"
                    HorizontalOptions="Center" IsEnabled="False" WidthRequest="300"/>
             
-            <Label FontSize="Large" Text="E mail :" HorizontalOptions="Center"/>
-            <Entry Keyboard="Email" FontSize="Large" Text="{Binding EdidUser.User_Email}"
-                   HorizontalOptions="Center" IsEnabled="False" WidthRequest="300"/>
-            
-            <Label FontSize="Large" Text="Номер карты :" HorizontalOptions="Center"/>
-            <Entry FontSize="Large" Text="{Binding EdidUser.User_Bank_card}" Keyboard="Numeric"
+            <Label FontSize="Medium" Text="Номер карты :" HorizontalOptions="Center"/>
+            <Entry FontSize="Medium" Text="{Binding EdidUser.User_Bank_card}" Keyboard="Numeric"
                    HorizontalOptions="Center" IsEnabled="False" WidthRequest="300" />
             
             <StackLayout Orientation="Horizontal">
-                <Label Margin="20,5" FontSize="Large" Text="Редактировать :" HorizontalOptions="Center"/>
+                <Label Margin="20,5" FontSize="Medium" Text="Редактировать :" HorizontalOptions="Center"/>
                 <CheckBox x:Name="checkEdit" IsChecked="False"/>
             </StackLayout>
-            <Button FontSize="Large" Text="Сохранить" IsEnabled="False"
+            <Button FontSize="Medium" Text="Сохранить" IsEnabled="False"
                 FontAttributes="Bold"    Margin="0,5"    Command="{Binding Save}"
                     CommandParameter="{Binding Source={x:Reference myProfile}}"/>
         </StackLayout>

@@ -49,13 +49,15 @@ namespace Food_Delivery_Client.Authorization.Regestreted
            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         #endregion
 
-        internal async void Add_new(string Name, string Surname, string Phone, string E_mail, string Card, ContentPage win, ActivityIndicator activity)
+        internal async void Add_new(string Name, string Surname, string Phone,string Pass, string E_mail, string Card, ContentPage win, ActivityIndicator activity)
         {
             if (Name == null || Name == "")
             { win.DisplayAlert("Не все поля заполнены", "Ошибка", "Ок"); return; }
             if (Surname == null || Surname == "")
             { win.DisplayAlert("Не все поля заполнены", "Ошибка", "Ок"); return; }
             if (Phone == null || Phone == "")
+            { win.DisplayAlert("Не все поля заполнены", "Ошибка", "Ок"); return; }
+            if (Pass == null || Pass == "")
             { win.DisplayAlert("Не все поля заполнены", "Ошибка", "Ок"); return; }
             if (Blocked_Users.ToList().Exists(i => i.Blocked_user_Phone == Phone))
             {
@@ -76,10 +78,11 @@ namespace Food_Delivery_Client.Authorization.Regestreted
                         User_Surname = Surname,
                         User_Phone = Phone,
                         User_Email = E_mail,
-                        User_Bank_card = Card
+                        User_Bank_card = Card,
+                        User_Temp_password = Pass
                     });
                     activity.IsEnabled = false; activity.IsRunning = false; activity.IsVisible = false;
-                    win.DisplayAlert("Успех", "Вы зарегестрировались\nожидайте пароль", "ОK");
+                    win.DisplayAlert("Успех", "Вы зарегестрировались", "ОK");
                     App.Current.MainPage = new View_Authorization();
                 }
                 catch (Exception)

@@ -66,7 +66,7 @@ namespace Food_Delivery_Client.Authorization
 
         public string current_pass;
 
-        public string Autor
+        public string Current_Pass
         {
             get { return current_pass; }
             set { current_pass = value; OnPropertyChanged("Current_Pass"); }
@@ -92,8 +92,17 @@ namespace Food_Delivery_Client.Authorization
                      }
                      else 
                      {
-                         Current_User = Users.ToList().Find(i => i.User_Phone == Current_Phone);                       
-                         App.Current.MainPage = new MainPage();
+                         if(!Users.ToList().Exists(i => i.User_Phone == Current_Phone||i.User_Temp_password == Current_Pass))
+                         {
+                             (act as View_Authorization).DisplayAlert("Извините", "Не верный пароль", "ОK");
+                             return;
+                         }
+                         else
+                         {
+                             Current_User = Users.ToList().Find(i => i.User_Phone == Current_Phone);
+                             App.Current.MainPage = new MainPage();
+                         }
+                        
                      }
                  }));
              }

@@ -16,6 +16,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
 
             </Grid.RowDefinitions>
 
@@ -25,9 +26,11 @@
                  TextColor="Black"  VerticalOptions="Center"  HorizontalOptions="Center"/>
             <Label Text="Номер телефона&#10;   (обязательно)" FontSize="20" Grid.Row="2" 
                 TextColor="Black"   VerticalOptions="Center"  HorizontalOptions="Center"/>
-            <Label Text="        E mail&#10;(не обязательно)" FontSize="20" Grid.Row="3" 
+            <Label Text="    Пароль&#10;(обязательно)" FontSize="20" Grid.Row="3" 
+                TextColor="Black"   VerticalOptions="Center"  HorizontalOptions="Center"/>
+            <Label Text="        E mail&#10;(не обязательно)" FontSize="20" Grid.Row="4" 
                 TextColor="Black"   VerticalOptions="Center" HorizontalOptions="Center"/>
-            <Label Text="   Номер карты&#10;(не обязательно)" FontSize="20" Grid.Row="4" 
+            <Label Text="   Номер карты&#10;(не обязательно)" FontSize="20" Grid.Row="5" 
                 TextColor="Black"   VerticalOptions="Center" HorizontalOptions="Center"/>
 
             <ActivityIndicator Grid.Row="2" Grid.RowSpan="2"
@@ -43,23 +46,26 @@
             <Entry x:Name = "Phone"  Keyboard ="Telephone"
                    FontSize="20" Grid.Column="1"                     
                  TextColor="Black"      Grid.Row="2"   />
+            <Entry x:Name = "Pass"  Keyboard ="Telephone"
+                   FontSize="20" Grid.Column="1"                     
+                 TextColor="Black"      Grid.Row="3"   />
             <Entry x:Name ="E_mail"  Keyboard="Email"
                   FontSize="20" Grid.Column="1"                     
-                  TextColor="Black"     Grid.Row="3"   />
+                  TextColor="Black"     Grid.Row="4"   />
             <Entry x:Name ="Card"   Keyboard ="Numeric"
                   FontSize="20" Grid.Column="1"                     
-                  TextColor="Black"     Grid.Row="4"   />
+                  TextColor="Black"     Grid.Row="5"   />
             
 
             <Button x:Name="Add" Grid.Column="1"                   
                    TextColor="Black"               
-                    Grid.Row="5" FontSize="20" 
+                    Grid.Row="6" FontSize="20" 
                 Text="Добавить" Clicked="Add_Clicked" />
 
 
             <Button Grid.Column="0"  Command="{Binding Go_to_Main}"                            
                            TextColor="Black"
-                    Grid.Row="5" FontSize="20" 
+                    Grid.Row="6" FontSize="20" 
                 Text="Отмена"/>
            
 
